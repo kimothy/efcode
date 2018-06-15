@@ -14,8 +14,9 @@ function f(){
   document.getElementById("fmi_text").innerHTML = null;
 
   var fmi = document.getElementById("fmi").value;
+  var spn_text = document.getElementById("spn_text").innerHTML;
 
-  if (fmi.length > 0){
+  if ((fmi.length > 0 && spn_text != "" )){
     for (n = 0; n < fmi_codes.length; n++) {
       if(fmi_codes[n]["id"] == fmi){
         document.getElementById("fmi_text").innerHTML = fmi_codes[n]["text"];
@@ -27,7 +28,7 @@ function f(){
 
 function s(){
   document.getElementById("spn_text").innerHTML = null;
-  
+
   var spn = document.getElementById("spn").value;
 
   if (spn.length > 0){
@@ -38,6 +39,7 @@ function s(){
       }
     } 
   }
+  f();
 };
 
 fmi_codes = [
