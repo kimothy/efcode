@@ -11,6 +11,8 @@ window.addEventListener('load', async e =>{
 });
 
 function f(){
+  document.getElementById("fmi_text").innerHTML = null;
+
   var fmi = document.getElementById("fmi").value;
 
   if (fmi.length > 0){
@@ -20,12 +22,12 @@ function f(){
         break;
       }
     } 
-  } else {
-    document.getElementById("fmi_text").innerHTML = null;
   }
 };
 
 function s(){
+  document.getElementById("spn_text").innerHTML = null;
+  
   var spn = document.getElementById("spn").value;
 
   if (spn.length > 0){
@@ -35,8 +37,6 @@ function s(){
         break;
       }
     } 
-  } else {
-    document.getElementById("spn_text").innerHTML = null;
   }
 };
 
