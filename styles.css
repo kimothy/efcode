@@ -1,0 +1,100 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 300;
+    margin: auto;
+  }
+  
+  h1 {
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+  
+#page-wrap {
+    margin: 0 auto;
+}
+  
+  main {
+    font-weight: 200;
+   }
+   
+.grid-container {
+   display: grid;
+   grid-template-areas:
+     "header header"
+     "sub sub"
+     "grid-item grid-item"
+     "grid-item grid-item"
+     "spn spn"
+     "fmi fmi";
+   grid-row-gap: 4px;
+   grid-column-gap: 4px;
+   grid-template-columns: 50px Auto;
+   padding: 20px;
+   background-color: rgb(255, 255, 255);
+   min-width: 300px;
+   max-width: 500px;
+}
+
+
+.grid-item {
+    background-color: rgba(250, 250, 250, 0.8);
+    border: 0px solid rgba(200, 200, 200, 0.8);
+    padding: 0px;
+    font-size: 20px;
+    text-align: left;
+  }
+
+.header {
+    grid-area: header;
+}
+
+.inputBox {
+    grid-area: content;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 15pt;
+    width: 100%;
+    text-align:  left;
+    background-color: rgba(250, 250, 250, 0.8);
+    border: none;
+    height: 100%;
+}
+
+.box {
+  background-color: #444;
+  color: #fff;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.header {
+  background-color: #999;
+  font-size: 25pt;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.sub-header {
+  grid-area: sub;
+  background-color: #999;
+  font-size: 10pt;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.spn-item {
+  grid-area: spn;
+  background-color: rgb(200, 200, 200);
+  color: rgb(255, 255, 255);
+  font-size: 12pt;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.fmi-item {
+  grid-area: fmi;
+  background-color: rgb(200, 200, 200);
+  color: rgb(255, 255, 255);
+  font-size: 12pt;
+  text-align: left;
+  text-transform: uppercase;
+}
