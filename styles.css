@@ -21,13 +21,13 @@ body {
    
 .grid-container {
    display: grid;
-   grid-row-gap: 4px;
-   grid-column-gap: 2px;
-   grid-template-columns:  50% 50%;
-   padding: 10px;
+   grid-row-gap: 15px;
+   grid-column-gap: 10px;
+   grid-template-columns: 47% 47%;
+   padding: 10%;
    padding-top: 50px;
    background-color: rgba(255, 255, 255, 0);
-   min-width: 200px;
+   min-width: 150px;
    max-width: 500px;
 }
 
@@ -39,8 +39,8 @@ body {
   }
 
 .inputBox {
-    font-size: 10pt;
-    width: 100%;
+    font-size: 15pt;
+    width: 96%;
     text-align:  left;
     background-color: rgba(255, 255, 255, 1);
     height: 100%;
