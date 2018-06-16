@@ -13,13 +13,15 @@ window.addEventListener('load', async e =>{
 function err(){
   document.getElementById("err_text").innerHTML = null;
 
-  var spn = document.getElementById("spn").value;
-  var fmi = document.getElementById("fmi").value;
+  var search = document.getElementById("search_box").value;
+  var spn = search.split(" ")[0];
+  var fmi = search.split(" ")[1];
+  if (fmi == ""){fmi = null};
 
   var spn_text = null;
   var fmi_text = null;
-
-  if (fmi.length > 0 && spn.length > 0) {
+  
+  if (fmi != null  && spn != null) {
     for (n = 0; n < spn_codes.length; n++) {
       if(spn_codes[n]["id"] == spn){
         spn_text = spn_codes[n]["text"];

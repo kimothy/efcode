@@ -23,7 +23,7 @@ body {
    display: grid;
    grid-row-gap: 15px;
    grid-column-gap: 10px;
-   grid-template-columns: 47% 47%;
+   grid-template-columns: 90&;
    padding: 10%;
    padding-top: 50px;
    background-color: rgba(255, 255, 255, 0);
@@ -48,7 +48,6 @@ body {
 }
 
 .spn-item {
-  grid-area: 2 / 1 / span 1 / span 2;
   background-color: rgb(200, 200, 200);
   color: rgb(255, 255, 255);
   font-size: 15pt;
@@ -57,7 +56,6 @@ body {
 }
 
 .fmi-item {
-  grid-area: 3 / 1 / span 1 / span 2;
   background-color: rgb(200, 200, 200);
   color: rgb(255, 255, 255);
   font-size: 15pt;
