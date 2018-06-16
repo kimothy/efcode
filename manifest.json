@@ -1,11 +1,11 @@
 {
-  "name": "efCode - Search Engine Fault Codes",
-  "short_name": "efcode",
+  "name": "err - Search Engine Fault Codes",
+  "short_name": "err",
   "theme_color": "#2196f3",
   "background_color": "#2196f3",
   "display": "standalone",
-  "Scope": "/efcode/",
-  "start_url": "/efcode/index.html",
+  "Scope": "/err/",
+  "start_url": "/err/index.html",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",

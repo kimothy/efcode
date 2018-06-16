@@ -10,37 +10,35 @@ window.addEventListener('load', async e =>{
   }
 });
 
-function f(){
-  document.getElementById("fmi_text").innerHTML = null;
-
-  var fmi = document.getElementById("fmi").value;
-  var spn_text = document.getElementById("spn_text").innerHTML;
-
-  if ((fmi.length > 0 && spn_text != "" )){
-    for (n = 0; n < fmi_codes.length; n++) {
-      if(fmi_codes[n]["id"] == fmi){
-        document.getElementById("fmi_text").innerHTML = fmi_codes[n]["text"];
-        break;
-      }
-    } 
-  }
-};
-
-function s(){
-  document.getElementById("spn_text").innerHTML = null;
+function err(){
+  document.getElementById("err_text").innerHTML = null;
 
   var spn = document.getElementById("spn").value;
+  var fmi = document.getElementById("fmi").value;
 
-  if (spn.length > 0){
+  var spn_text = null;
+  var fmi_text = null;
+
+  if (fmi.length > 0 && spn.length > 0) {
     for (n = 0; n < spn_codes.length; n++) {
       if(spn_codes[n]["id"] == spn){
-        document.getElementById("spn_text").innerHTML = spn_codes[n]["text"];
+        spn_text = spn_codes[n]["text"];
         break;
       }
-    } 
+    }
+
+    for (n = 0; n < fmi_codes.length; n++) {
+      if(fmi_codes[n]["id"] == fmi){
+        var fmi_text = fmi_codes[n]["text"];
+        break;
+      }
+    }
   }
-  f();
-};
+
+  if (spn_text != null && fmi_text != null) {
+    document.getElementById("err_text").innerHTML = spn_text + ": " + fmi_text;
+  }
+}
 
 fmi_codes = [
   { id:  0, text: 'Data Valid but Above Normal Operational Range, Most Severe Level'},

@@ -5,7 +5,7 @@
     <meta chartset="UFT-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie-edge">
-    <title>efCode</title>
+    <title>err</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="manifest.json">
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,300,600,800,900" rel="stylesheet" type="text/css">
@@ -13,11 +13,9 @@
 <body>
     <main>
         <div class = "grid-container" id="page-wrap">
-            <!--<div class="box grid-item"> SPN/FMI </div>-->
-            <input class="box inputBox" placeholder="SPN" type="number" id="spn" oninput="s()">
-            <input class="box inputBox" placeholder="FMI" type="number" id="fmi" oninput="f()">
-            <div class="box spn-item"> <div id="spn_text"> </div> </div>
-            <div class="box fmi-item"> <div id="fmi_text"> </div> </div>
+            <input class="inputBox" placeholder="SPN" type="number" id="spn" oninput="err()">
+            <input class="inputBox" placeholder="FMI" type="number" id="fmi" oninput="err()">
+            <div class="box spn-item" id="err_text"> </div>
         </div>
     </main>
     
