@@ -39,7 +39,26 @@ function err(){
 
   if (spn_text != null && fmi_text != null) {
     document.getElementById("err_text").innerHTML = spn_text + ": " + fmi_text;
+    document.getElementById("copy_box").value = spn_text + ": " + fmi_text;
+
+    if (navigator.vendor ==  "Apple Computer, Inc." == false) document.getElementById("copy_button").style.visibility = 'visible';
+
+  } else if(search == "") {
+    document.getElementById("err_text").innerHTML = "Search for a SPN/FMI code...";
+    document.getElementById("copy_box").value = null;
+    document.getElementById("copy_button").style.visibility = 'hidden';
+  } else {
+    document.getElementById("err_text").innerHTML = "N/A";
+    document.getElementById("copy_box").value = null;
+    document.getElementById("copy_button").style.visibility = 'hidden';
   }
+}
+
+function copy() {
+  var copyText = document.getElementById("copy_box");
+  copyText.select();
+  document.execCommand("copy");
+  //alert("Copied the text: " + copyText.value);
 }
 
 fmi_codes = [
