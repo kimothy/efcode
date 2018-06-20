@@ -14,8 +14,11 @@ function err(){
   document.getElementById("err_text").innerHTML = null;
 
   var search = document.getElementById("search_box").value;
-  var spn = search.split(" ")[0];
-  var fmi = search.split(" ")[1];
+  var split_search = search.split(/\/|\s|\\|\:|\;|\-/);
+  console.log(split_search);
+  var spn = split_search[0];
+  var fmi = split_search[1];
+
   if (fmi == ""){fmi = null};
 
   var spn_text = null;
