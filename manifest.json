@@ -1,8 +1,8 @@
 {
   "name": "err - Search Engine Fault Codes",
   "short_name": "err",
-  "theme_color": "#2196f3",
-  "background_color": "#2196f3",
+  "theme_color": "#464646",
+  "background_color": "#464646",
   "display": "standalone",
   "Scope": "/err/",
   "start_url": "/err/index.html",
