@@ -15,7 +15,6 @@ function err(){
 
   var search = document.getElementById("search_box").value;
   var split_search = search.split(/\/|\s|\\|\:|\;|\-/);
-  console.log(split_search);
   var spn = split_search[0];
   var fmi = split_search[1];
 
