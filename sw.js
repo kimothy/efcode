@@ -5,7 +5,7 @@ const staticAssets = [
 ];
 
 self.addEventListener('install', async event => {
-    const cache = await caches.open('efcode-static');
+    const cache = await caches.open('err-static');
     cache.addAll(staticAssets);
 });
 
