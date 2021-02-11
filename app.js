@@ -11,8 +11,6 @@ window.addEventListener('load', async e =>{
 });
 
 function err(){
-    document.getElementById("err_text").innerHTML = null;
-
     var search = document.getElementById("search_box").value;
     var split_search = search.split(/\/|\s|\\|\:|\;|\-/);
     var a = split_search[0];
@@ -24,12 +22,24 @@ function err(){
     if (c == ""){c = null};
     if (d == ""){d = null};
 
-    
+    var spn = null;
+    var fmi = null;
     var spn_text = null;
     var fmi_text = null;
 
-    /*search via blink codes, a-b-c-d or a-b-c or a format*/
-    if ((a != null  && b != null && c != null) ||  (a != null  && b == null && c == null)){
+
+    /* determine input type based on number of numbers */
+    if ((a != null  && b != null && c != null) ||  (a != null  && b == null && c == null)) {
+        var input_type = 'blinks';
+    } else if (a != null  && b != null && c == null && d == null) {
+        var input_type = 'spn-fmi';
+    } else {
+        var input_type = null;
+    }
+
+
+    if (input_type == 'blinks') {
+        console.log('blinks', a, b, c, d);
         for (n = 0; n < blinks.length; n++) {
             var code = String(blinks[n]['blink']).split(/\/|\s|\\|\:|\;|\-/);
             var ca = code[0];
@@ -40,40 +50,44 @@ function err(){
             if (cb == ""){cb = null};
             if (cc == ""){cc = null};
             if (cd == ""){cd = null};
-
             
             if (a == ca && b == cb && c == cc && d == cd && code.length == 4){
-                a = blinks[n]['spn'];
-                b = blinks[n]['fmi'];
+                spn = blinks[n]['spn'];
+                fmi = blinks[n]['fmi'];
                 break;
             }
-
             if (a == ca && b == cb && c == cc && code.length == 3){
-                a = blinks[n]['spn'];
-                b = blinks[n]['fmi'];
+                spn = blinks[n]['spn'];
+                fmi = blinks[n]['fmi'];
                 break;
             }
             if (a == ca && code.length == 1){
-                a = blinks[n]['spn'];
-                b = blinks[n]['fmi'];
+                spn = blinks[n]['spn'];
+                fmi = blinks[n]['fmi'];
                 break;
             }
         }
-        c = null;
-        d = null;
+    } else if (input_type == 'spn-fmi') {
+        spn = a;
+        fmi = b;
+    } else {
+        spn = null;
+        fmi = null;
     }
 
-    /*search for SPN FMI directly*/
-    if (a != null  && b != null && c == null && d == null) {
+    console.log(spn, fmi);
+
+    
+    if (spn != null  && fmi != null) {
         for (n = 0; n < spn_codes.length; n++) {
-            if(spn_codes[n]["id"] == a){
+            if(spn_codes[n]["id"] == spn){
                 spn_text = spn_codes[n]["text"];
                 break;
             }
         }
 
         for (n = 0; n < fmi_codes.length; n++) {
-            if(fmi_codes[n]["id"] == b){
+            if(fmi_codes[n]["id"] == fmi){
                 var fmi_text = fmi_codes[n]["text"];
                 break;
             }
@@ -82,27 +96,20 @@ function err(){
 
 
   if (spn_text != null && fmi_text != null) {
-    document.getElementById("err_text").innerHTML = spn_text + ": " + fmi_text;
-    document.getElementById("copy_box").value = spn_text + ": " + fmi_text;
+      document.getElementById("err_spn").innerHTML = spn_text;
+      document.getElementById("err_fmi").innerHTML = fmi_text;
+      document.getElementById("err_info").innerHTML = "SPN " + spn + " / " + "FMI " + fmi;
 
-    if (navigator.vendor ==  "Apple Computer, Inc." == false) document.getElementById("copy_button").style.visibility = 'visible';
 
   } else if(search == "") {
-    document.getElementById("err_text").innerHTML = "Search for a SPN/FMI code...";
-    document.getElementById("copy_box").value = null;
-    document.getElementById("copy_button").style.visibility = 'hidden';
+      document.getElementById("err_spn").innerHTML = "";
+      document.getElementById("err_fmi").innerHTML = "";
+      document.getElementById("err_info").innerHTML = "No search results...";
   } else {
-    document.getElementById("err_text").innerHTML = "N/A";
-    document.getElementById("copy_box").value = null;
-    document.getElementById("copy_button").style.visibility = 'hidden';
+      document.getElementById("err_spn").innerHTML = "";
+      document.getElementById("err_fmi").innerHTML = "";
+      document.getElementById("err_info").innerHTML = "No search results...";
   }
-}
-
-function copy() {
-  var copyText = document.getElementById("copy_box");
-  copyText.select();
-  document.execCommand("copy");
-  //alert("Copied the text: " + copyText.value);
 }
 
 fmi_codes = [
