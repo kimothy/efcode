@@ -1,7 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta chartset="UFT-8">
     <meta name="theme-color" content="#464646"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,19 +9,25 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="manifest" href="manifest.json">
 </head>
-<body>
-    <main>
-        <div class = "grid-container" id="page-wrap">
-            <input class="inputBox" placeholder="SPN/FMI" type="text" id="search_box" oninput="err()">
-            <p> Jostein, vil du teste Duetz blinkekoder typ blink-blink-blink? Har lagt inn søkefunksjon og nye koder.
-                Hvis det er flere resultater for samme kode, som det kan være, vises kun den første. Hilsen Kim</p>
-            <div class="box spn-item" id="err_text">Search for a SPN/FMI code...</div>
-            <button id="copy_button" onclick="copy()"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOYSURBVGhD3dpJqNVmAMXxV+epFtEiggPoorRu6oQiFQccFgURRVx0Iy6ECoq6UdSdU6tQ6EJFpdCFggguCkIFFxZEUJzFuhGxiopVEItKndv/eb7IeSEm35eXm3vxwI9KcpPvnt77JbnJa0vlEyzCEdzBK/yX4xl+wxdomQzHKWS94SLPsRJNj0rcRtabjLET+lSbEg18Guk39Q8u4FyOy3gD324fmlJmIfyNvMQG9ERI1sK3l6aU0cT2N7EJMRkM3z6xH91RW+4iGVxfp9BPwqPJ7iUSB1FbGT/EntWCEnkMLyA6fOvTnota4oOf1IIS8SKXMAe1z5Eqi/yKXlrQkW6YilXYih9ybMRElE5VRY7C58MS3ITvv8hb/IJBiI7vqGyRGxj67p/tX6ld8P3GuoZRiIrvoGyR8R3/VTbD91nWPYxFcHzjskWSfIn0haY+rRXQAWB2jm9xHr7t3/gKQfENu1pkD3x/J9AfoZkJ317uI6iMb5Qu8h30f7TIp1BuIdmXLnVGIiZD4O8n8QDjkBvfIF3ke/j6D/kMPeAXkGcQGx31fL/uESbgg/EXd6WI+DIdjsvE95GWW8ZfmC6yDNq4yEDUUUQ0XmYZf1FXJntdRSSzjL8gXeRzaIMi+m7XWUR0ABiN9/GVrTBH/oTvJ88V9EN7fEUrFNFJ9QCOZ7gKHdZ9nG1ojy9shSJF0Y2Sv5CMox91GrvT4Oki07E3QF8UFfkay0uaBc/P8LEmo9OCdJGYFBVZD18fQz+ZPdvh679BpwXpIrosWBegN1q6SJVz5KMpUuUcaWqRKhNdZAwWB9C9sKIiC3A40G7kJbpITIqKxMwR/a7JS2aRf22B7kmVTdOLXLcFOkvqV1qZNL2Ibjb7Qh3qytwlLCrSB7pfFUL7yktmkUnQjTFf8Tt0MtSJLjRFRapMZhFFd/d8RSyVqPKrlRZ0QlR00fcHfGWMlimi6Obzj3gBf1GIliqSZATW4BB0Xsl6dpg2AEVFliJr2xBb4AkqUjZFRapMrUWOoVHZAR+r0iKKzy89GmhUdD3mRSr/y4uL8AF0l73q6EL2KZIxniDmfBcUPdr2InogOgVVRfex0o8edFCqPJonD+EDvYYm/k/IenYYQn8aoq+TfxLJvoOfn8RmHjSAD9goq9HQzIf++CBr8CroqZjOdbVkGPRQNP1V6wpNbM2Jhn2d8qIb3Jqk05B+bhhqBnQr1Z/hW9ra/gdlFNUXZdq6UgAAAABJRU5ErkJggg=="> </button>
+  <body>
+    <main class = 'cl'>
+      <div class = "grid-container" id="page-wrap">
+        <div class = "grid-item-heading">
+          <h1>Search engine Fault Codes</h1>
         </div>
-        <input class="hide" type="text" id="copy_box">
+        <div class = "grid-item-search-box">
+          <input class="inputBox" placeholder="SPN FMI" type="text" id="search_box" oninput="err()">
+        </div>
+        <div class = "grid-item-search-info">
+          <div class="search-info" id="err_info">No search results...</div>
+        </div>
+        <div class = "grid-item-search-results">
+          <div class="search-results" id="err_spn"></div>
+          <div class="search-results" id="err_fmi"></div>                                                            
+        </div>
+      </div>
     </main>
-    
+  
     <script src="app.js"></script>
-</body>
-
+  </body>
 </html>
